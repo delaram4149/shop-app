@@ -29,16 +29,4 @@
 //export default Home
 
 
-import React from 'react'
-import ChildOne from '../component/ChildOne'
-
-const Home = () => {
-  return (
-    <div>
-
-      <ChildOne/>
-    </div>
-  )
-}
-
-export default Home
+ 
