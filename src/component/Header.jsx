@@ -4,6 +4,14 @@ import useBasket from '../store/Basket'
  
  const Header = () => {
   const{items}=useBasket()
+ 
+    const sumOfBasketItem=()=>{
+      const sumQuantity = items.reduce((acc,curr)=>acc + curr.quantity,0)
+      return sumQuantity
+    
+    }
+    
+  
    return (
     
      
@@ -32,7 +40,7 @@ import useBasket from '../store/Basket'
           }
           to="/basket"
         >
-          Basket {items.length}
+          Basket {sumOfBasketItem()}
         </NavLink>
       </nav>
     </header>
