@@ -4,7 +4,11 @@ import getProducts from '../service/api/products'
 import ProductItem from './ProductItem'
  
  const ProductPage = () => {
-     const {isPending , data , isStale}=useQuery({queryKey :["/products"], queryFn: getProducts , staleTime:2000})
+     const {isPending , data , isStale}=useQuery({queryKey :["/products"],
+       queryFn: getProducts , 
+       staleTime:40000, 
+       retry: 4, 
+       retryDelay :3000})
      console.log("🚀 ~ ProductPage ~ isStale:", isStale)
     
    return (
