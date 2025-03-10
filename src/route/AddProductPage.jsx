@@ -6,9 +6,10 @@ import { createProduct } from '../service/api/products'
  const AddProductPage = () => {
 
     const {register, handleSubmit , formState: {errors}}=useForm()
-   const{mutate , isPending ,isSuccess}=useMutation({
+   const{mutate , isPending ,isSuccess ,}=useMutation({
     mutationKey : ['/products'],
-    mutationFn : createProduct
+    mutationFn : createProduct,
+    gcTime : 2000,
    })
     console.log("🚀 ~ AddProductPage ~ isPending:", isPending)
     const onSubmit = handleSubmit((data)=>{
@@ -31,7 +32,8 @@ import { createProduct } from '../service/api/products'
                 <label htmlFor="price">PRICE :</label>
                 <input {...register('price' , {required: 'price is required'})} className='border border-black rounded-lg p-2 m-2' type="number" placeholder='enter product price' id='price' />
                <br />
-                {errors.price && <span className='text-red-600'>{errors.price.message}</span>}
+               
+               {errors.price && <span className='text-red-600'>{errors.price.message}</span>}
             </div>
 
             <div>
