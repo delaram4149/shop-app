@@ -7,7 +7,7 @@ const getProducts = async ()=>{
 
 export const createProduct= async (payload)=>{
 const data = await axios.post("https://fakestoreapi.com/products" , {
-    // {...payload} => chot type payload obj 
+    // {...payload} => chon type payload obj 
     body : payload
 })
 return data;
