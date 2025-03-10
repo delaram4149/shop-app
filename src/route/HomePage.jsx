@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
 
 import ProductPage from '../component/ProductPage'
 import { Link } from 'react-router-dom'
