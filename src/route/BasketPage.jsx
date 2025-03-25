@@ -1,62 +1,22 @@
- import React, { useMemo, useState } from 'react'
+import React, { useReducer } from 'react'
+import { initState, reducerr } from '../reducer/counterReducer'
 
+const BasketPage = () => {
 
- function getParams(text) {
-  if (text.length < 2) {
-    return [...text];
-  }
-  const params = [];
-
-  const letters = [...text];
-
-  letters.forEach((letter, index) => {
-    const without = [...letters];
-    without.splice(index, 1);
-    getParams(without).forEach((element) => {
-      params.push(letter + element);
-    });
-  });
-  return params;
+   const [state,dispatch]=useReducer(reducerr, initState)
+  return (
+  <div>
+      <div>
+      <button onClick={()=>dispatch({type: "increase"})} className='bg-red-400 p-3 m-3 rounded-md'>increase</button>
+      <button  onClick={()=>dispatch({type: "decrease"})} className='bg-red-400 p-3 m-3 rounded-md'>decrease</button>
+      <button  onClick={()=>dispatch({type: "reset"})} className='bg-red-400 p-3 m-3 rounded-md'>reset</button>
+      
+      <button  onClick={()=>dispatch({type: "increase  + 5" , payload : 5})} className='bg-red-400 p-3 m-3 rounded-md'>increase + 5</button>
+    </div>
+    <br />
+    count : {state.count}
+  </div>
+  )
 }
-// 'abc' => ['abc', 'acb', 'bca', 'bac' , 'cba', 'cab']
 
- 
- const BasketPage = () => {
-
-  const [showList, setShowList] = useState(false)
-
-  const [letters, setLetters] = useState("")
-console.time("invoke getParams")
-
-
-// useMemo
-  const list = useMemo(()=>getParams(letters), [letters])
-
-
-
-
-  console.timeEnd("invoke getParams")
-  console.log(list);
-  
-   return (
-     <div>
-
-      <input type="text" onChange={(e)=>setLetters(e.target.value)} className='border border-black rounded-md m-2 p-2' />
-
-      <br />
-      <button className='border border-black rounded-md ' onClick={()=>setShowList(!showList)}>
-        {showList ? "hide list" : "show list"}
-      </button>
-      <br />
-      { showList && <ul className='m-4 '>
-        {list.map((item , i)=>{
-          return <li key={item + i}> {i+1} - {item}</li>
-        })}
-      </ul>}
-     </div>
-
-       
-   )
- }
- 
- export default BasketPage
+export default BasketPage

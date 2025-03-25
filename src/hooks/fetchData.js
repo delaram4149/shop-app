@@ -30,3 +30,8 @@ useEffect(()=>{
 return {data,isPending,error}
 }
 export default useFetchData;
+
+
+
+
+ 
