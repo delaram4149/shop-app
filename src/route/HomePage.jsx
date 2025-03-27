@@ -1,21 +1,15 @@
- import React, { useState } from 'react'
-import Modal from '../component/Modal'
-import FormComponent from '../component/FormComponent'
-import WishIcon from '../component/icons/WishIcon'
+ import React from 'react'
+import Header from '../component/Header'
  
  const HomePage = () => {
-
-  const [isOpen, setIsOpen] = useState(false)
-  const handleCloseModal =()=>{
-    setIsOpen(false)
-  }
    return (
      <div>
-      <button onClick={()=>setIsOpen(true)} className='p-2 rounded-lg bg-red-600 text-white m-4'> open modal <WishIcon/> </button>
-
-       <Modal visible ={isOpen} onclose={handleCloseModal}>
-        <FormComponent/>
-       </Modal>
+      
+      <div className=' flex justify-center  items-center'>
+                  <div className='bg-gray-50 w-2/3 h-screen'>
+                  <Header/>
+                  </div>
+                </div>
      </div>
    )
  }
