@@ -2,6 +2,8 @@ import React from 'react'
 import useBasket from '../store/Basket'
 
 const ProductItem = ({productData}) => {
+ 
+  
   const {title,image,id,price}=productData
   const{actions}=useBasket()
   
