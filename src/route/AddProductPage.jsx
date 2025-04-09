@@ -6,7 +6,7 @@ import { createProduct } from '../service/api/products'
  const AddProductPage = () => {
 
     const {register, handleSubmit , formState: {errors}}=useForm()
-   const{mutate , isPending ,isSuccess ,}=useMutation({
+   const{mutate , isPending ,isSuccess }=useMutation({
     mutationKey : ['/products'],
     mutationFn : createProduct,
     gcTime : 2000,
@@ -15,6 +15,10 @@ import { createProduct } from '../service/api/products'
     const onSubmit = handleSubmit((data)=>{
         mutate(data)
     })
+
+   
+
+    
 
    return (
      <div>
